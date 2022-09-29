@@ -155,7 +155,32 @@ const states = [
 ];
 
 function App() {
-  return <div id="main"></div>;
+  return <div id="main">
+    <ol>
+    {states.map((statesObj,index)=>{
+      return (<div key={imdex}>
+        <li>{statesObj.name}
+          <ol>
+          {statesObj.cities.map((citiesObj,cityindex)=>{
+            return (<div key={`city`+(cityindex+1)}>
+              <li>{citiesObj.name}
+               <ol>
+                 {citiesObj.towns.map((townsObj,townsindex)=>{
+                 return (<div key={`town`+(townsindex+1)}>
+                   <li>{townObj.name}
+                   </div>)
+                    })}
+                <ol>
+              </li>
+              </div>
+            })}
+         
+          </ol>
+         </li>
+        </div>)
+      })}
+    </ol>
+  </div>;
 }
 
 export default App;
